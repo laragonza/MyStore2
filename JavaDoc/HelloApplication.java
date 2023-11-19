@@ -1,28 +1,31 @@
-package com.example.mystore;
-
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import javafx.scene.Parent;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-
-import java.io.IOException;
-
+/**
+ * La clase principal de la aplicación MyStore que extiende javafx.application.Application.
+ * Inicia la aplicación y muestra la vista principal.
+ */
 public class HelloApplication extends Application {
+    
+    /**
+     * Inicia la aplicación y muestra la vista principal (MainView.fxml).
+     *
+     * @param primaryStage El escenario principal de la aplicación.
+     */
     @Override
     public void start(Stage primaryStage) {
-        Parent root;
         try {
-            root = FXMLLoader.load(getClass().getResource("MainView.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("MainView.fxml"));
             primaryStage.setScene(new Scene(root));
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Muestra una nueva página utilizando un cargador FXML.
+     *
+     * @param event      El evento de acción que desencadena la acción.
+     * @param fxmlLoader El cargador FXML para la nueva página.
+     */
     @FXML
     void mostrarPagina(ActionEvent event, FXMLLoader fxmlLoader) {
         try {
@@ -35,19 +38,21 @@ public class HelloApplication extends Application {
         }
     }
 
-
+    /**
+     * Cierra la página actual asociada al botón especificado.
+     *
+     * @param event      El evento de acción que desencadena la acción.
+     * @param btnEmpezar El botón asociado a la página que se va a cerrar.
+     */
     @FXML
     public void cerrarPagina(ActionEvent event, Button btnEmpezar) {
-
         try {
-            // selecciona la vista a la que pertenece btn1
+            // selecciona la vista a la que pertenece btnEmpezar
             Stage stage = (Stage) btnEmpezar.getScene().getWindow();
             // haciendo .hide cierra la ventana con la opción de reabrir la vista
             stage.hide();
-
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
 }
