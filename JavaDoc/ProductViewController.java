@@ -1,8 +1,7 @@
-package com.example.mystore;
-
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-
+/**
+ * Controlador para la vista que muestra los detalles de un producto en la aplicación MyStore.
+ * Se encarga de la presentación de la información del producto en la interfaz de usuario.
+ */
 public class ProductViewController {
 
     @FXML
@@ -14,8 +13,14 @@ public class ProductViewController {
 
     private Product product;
 
+    /**
+     * Establece el producto asociado y configura los elementos de la interfaz de usuario con sus detalles.
+     *
+     * @param product El producto que se mostrará en la vista.
+     */
     public void setProduct(Product product) {
         this.product = product;
+
         // Configura los elementos de la interfaz de usuario con los detalles del producto
         if (product != null) {
             productNameLabel.setText(product.getName());
@@ -29,18 +34,30 @@ public class ProductViewController {
         }
     }
 
+    /**
+     * Obtiene el nombre del producto desde el producto asociado.
+     *
+     * @return El nombre del producto o una cadena vacía si el producto es nulo.
+     */
     public String getProductName() {
-        // Implementa la lógica para obtener el nombre del producto desde product
         return (product != null) ? product.getName() : "";
     }
 
+    /**
+     * Obtiene el precio del producto desde el producto asociado.
+     *
+     * @return El precio del producto como cadena o una cadena vacía si el producto es nulo.
+     */
     public String getProductPrice() {
-        // Implementa la lógica para obtener el precio del producto desde product
         return (product != null) ? String.valueOf(product.getPrice()) : "";
     }
 
+    /**
+     * Obtiene la descripción del producto desde el producto asociado.
+     *
+     * @return La descripción del producto o una cadena vacía si el producto es nulo.
+     */
     public String getProductDescription() {
-        // Implementa la lógica para obtener la descripción del producto desde product
         return (product != null) ? product.getDescription() : "";
     }
 }
