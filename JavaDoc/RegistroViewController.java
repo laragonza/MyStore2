@@ -1,18 +1,7 @@
-package com.example.mystore;
-
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-
-import java.sql.Connection;
-import java.sql.Statement;
-import java.sql.SQLException;
-
+/**
+ * Controlador para la vista de registro en la aplicación MyStore.
+ * Permite a los usuarios registrarse en la aplicación.
+ */
 public class RegistroViewController {
 
     @FXML
@@ -37,6 +26,12 @@ public class RegistroViewController {
     Bd baseDatos = new Bd();
     FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("LoginView.fxml"));
     FXMLLoader loaderHome = new FXMLLoader(getClass().getResource("HomeView.fxml"));
+
+    /**
+     * Muestra la vista de inicio de sesión al hacer clic en el botón correspondiente.
+     *
+     * @param event El evento de acción que desencadena la acción.
+     */
     @FXML
     void MostrarViewInicioSesion(ActionEvent event) {
         try {
@@ -48,16 +43,22 @@ public class RegistroViewController {
         }
     }
 
+    /**
+     * Intenta iniciar sesión con las credenciales proporcionadas.
+     * Si el usuario no existe, lo registra y muestra la vista de inicio de sesión.
+     *
+     * @param event El evento de acción que desencadena la acción.
+     */
     @FXML
     void showHome(ActionEvent event) {
         boolean encontrados = false;
 
         try {
-            encontrados = baseDatos.iniciarSesion( txtMail, txtPassword);
+            encontrados = baseDatos.iniciarSesion(txtMail, txtPassword);
 
-            //Una vez a encontrado el usuario accedo a la siguiente vista
-            if(encontrados == false){
-                baseDatos.guardarUsuario(txtNombre,txtApellidos,txtMail,txtPassword);
+            // Una vez a encontrado el usuario accedo a la siguiente vista
+            if (!encontrados) {
+                baseDatos.guardarUsuario(txtNombre, txtApellidos, txtMail, txtPassword);
                 main.cerrarPagina(event, btnAcceder);
                 main.mostrarPagina(event, loaderLogin);
             }
@@ -66,6 +67,6 @@ public class RegistroViewController {
             e.printStackTrace();
         }
     }
-
 }
+
 
