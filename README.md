@@ -73,6 +73,8 @@ La aplicación está dividida en varias clases Java:
 ## Documentación
 
 Para obtener una documentación detallada de cada clase y método, consulta los comentarios en línea en el código fuente.
+![image](https://github.com/laragonza/MyStore2/assets/16885317/07bc6670-2e00-4b68-8b5d-fa7dbdab72da)
+
 
 ## Diagrama
 
