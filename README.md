@@ -73,11 +73,10 @@ La aplicación está dividida en varias clases Java:
 ## Documentación
 
 Para obtener una documentación detallada de cada clase y método, consulta los comentarios en línea en el código fuente.
+
+## Diagrama
 ![image](https://github.com/laragonza/MyStore2/assets/16885317/07bc6670-2e00-4b68-8b5d-fa7dbdab72da)
 
 
-## Diagrama
-
-![282314220-abf9f710-6b59-4c1b-8f86-a886fc25ce20](https://github.com/laragonza/MyStore2/assets/16885317/a3ad75d4-5cec-4f86-9fb6-51b147e1837c)
 
 
